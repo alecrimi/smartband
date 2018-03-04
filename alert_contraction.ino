@@ -6,8 +6,16 @@
   if value beyond certain value turn on the led
   
   */
+
+//#include "Adafruit_FONA.h"
+#define FONA_RX 2
+#define FONA_TX 3
+#define FONA_RST 4
+
 int threshold = 200;  // threshold to detect contraction
 int led = 7;// Pin D7 has an LED connected on FLORA.
+//Adafruit_FONA fona = Adafruit_FONA(FONA_RST);
+char sendto[20]; //phone number to send the message
 
 // the setup routine runs once when you press reset:
 void setup() {
@@ -28,6 +36,7 @@ void loop() {
   if (sensorValue > threshold)
   {
     digitalWrite(led, HIGH);   // turn the LED on (HIGH is the voltage level)
+    fona.sendSMS(sendto, "BABY IS COMING!")
   }
   
   delay(1);        // delay in between reads for stability
