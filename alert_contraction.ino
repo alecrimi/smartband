@@ -36,7 +36,7 @@ void loop() {
   if (sensorValue > threshold)
   {
     digitalWrite(led, HIGH);   // turn the LED on (HIGH is the voltage level)
-    fona.sendSMS(sendto, "BABY IS COMING!")
+    //fona.sendSMS(sendto, "BABY IS COMING!")
   }
   
   delay(1);        // delay in between reads for stability
